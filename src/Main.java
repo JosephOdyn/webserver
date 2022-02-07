@@ -18,19 +18,19 @@ public class Main {
 
         try {
             System.out.println("About to create the Server Scoket....");
-            ServerSocket server = new ServerSocket(50001);         //to create a sever socket
-            System.out.println("Server socket created !!!!");
+            ServerSocket server = new ServerSocket(60001);         //to create a sever socket
+            System.out.println("This server is ON !!!!");
 
-            System.out.println("About to accept....");
+            System.out.println("Waiting for connections....");
             Socket client = server.accept();    //waiting for a client it's a blocking system call
-            System.out.println("Accept is returned !!!!");
+            System.out.println("Connection made !!!!");
 
             Date today = new Date();
             PrintWriter out = new PrintWriter (client.getOutputStream());
-            out.println("Hello I'm Server. My time is " + today);   //write to the client
+            out.println("Hello client, I'm Module 3 temp-Server. Today " + today + " I discovered that I like apples ¯\_(ツ)_/¯  );   //write to the client
 
             out.flush();   // something inbetween will be flushed
-            System.out.println("Sent data time " + today);
+            System.out.println("Ok, bye");
 
             client.close();     //alwasys don't forget to close the socket
             System.out.println("Closed the connection....");
